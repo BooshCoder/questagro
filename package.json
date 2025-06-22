@@ -1,0 +1,21 @@
+{
+  "name": "questagro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Bushmakin_Eu <Bushmakin07@gmail.com>",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "glob": "^11.0.3",
+    "postcss-sort-media-queries": "^5.2.0",
+    "vite": "^6.3.5",
+    "vite-plugin-full-reload": "^1.2.0",
+    "vite-plugin-html-inject": "^1.1.2"
+  }
+}
