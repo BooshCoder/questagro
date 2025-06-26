@@ -1,0 +1,11 @@
+@import './reset.css';
+@import './base.css';
+@import './components.css';
+@import './responsive.css';
+@import './agronomy.css';
+@import './precision.css';
+@import './company.css';
+@import './header.css';
+@import './footer.css';
+@import './education.css';
+@import './feedback.css';
