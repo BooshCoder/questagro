@@ -1,11 +1,32 @@
 <header>
-  <nav>
-    <ul>
-      <li><a href="#company">Компанія</a></li>
-      <li><a href="#agronomy">Агрономія</a></li>
-      <li><a href="#precision">Точне землеробство</a></li>
-      <li><a href="#education">Освіта</a></li>
-      <li><a href="#feedback">Зворотній зв'язок</a></li>
-    </ul>
-  </nav>
+  <div class="header__main">
+    <div class="container">
+      <div class="header__logo">
+        <a href="/">
+          <svg class="icon icon-logo" fill="#406540" aria-hidden="true">
+            <use xlink:href="/img/sprite.svg#icon-logo"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="burger" onclick="toggleBurgerMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="header__nav" aria-label="Основна навігація">
+        <ul>
+          <li><a class="nav-item" href="#company">Про компанію</a></li>
+          <li>
+            <a class="nav-item" href="#agronomy">Агрономічний супровід</a>
+          </li>
+          <li>
+            <a class="nav-item" href="#precision">Точне землеробство</a>
+          </li>
+          <li><a class="nav-item" href="#education">Навчання</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- .container -->
+  </div>
+  <!-- .header__main -->
 </header>
