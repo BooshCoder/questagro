@@ -1,3 +1,5 @@
+import { toggleBurgerMenu } from './refs.js';
+
 // console.log("Vite + Vanilla JS працює!");
 
 document.addEventListener('DOMContentLoaded', async () => {
