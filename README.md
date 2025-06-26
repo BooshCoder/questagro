@@ -27,23 +27,30 @@ questagro/
 ├── index.html             # main entry HTML
 ├── package.json           # project config
 ├── vite.config.js         # custom Vite config
+├── public/
+│   └── partials/          # HTML fragments (partials)
+│       ├── header.html
+│       ├── company.html
+│       ├── agronomy.html
+│       ├── precision.html
+│       ├── education.html
+│       ├── feedback.html
+│       └── footer.html
 └── src/
-    ├── css/
-    │   └── main.css        # custom styles
-    ├── img/                # image assets
-    ├── js/
-    │   └── main.js         # JavaScript logic
-    ├── partials/           # HTML fragments (partials)
-    │   └── footer.html
-    └── index.html          # includes partials
+    ├── css/               # custom styles
+    │   ├── base.css
+    │   ├── reset.css
+    │   ├── responsive.css
+    │   └── sections.css
+    ├── img/               # image assets
+    └── js/
+        └── main.js        # JavaScript logic for loading partials
 ```
 
 ---
 
 ## 🧩 Plugins Used
 
-- [`vite-plugin-html-inject`](https://www.npmjs.com/package/vite-plugin-html-inject)
-  – inject partials into HTML
 - [`vite-plugin-full-reload`](https://www.npmjs.com/package/vite-plugin-full-reload)
   – full reload on HTML changes
 - [`postcss-sort-media-queries`](https://www.npmjs.com/package/postcss-sort-media-queries)
@@ -53,13 +60,15 @@ questagro/
 
 ## 🧩 How HTML partials work?
 
-Example in `index.html`:
+HTML partials live in `/public/partials/` and are loaded dynamically using
+JavaScript at runtime:
 
-```html
-<load src="./src/partials/footer.html" />
+```js
+const section = await loadPartial('/partials/company.html');
+document.querySelector('#sections').appendChild(section);
 ```
 
-> These are injected during the build via `vite-plugin-html-inject`.
+This keeps the HTML clean and modular while keeping build tools minimal.
 
 ---
 
@@ -89,7 +98,3 @@ Add `.github/workflows/deploy.yml` — just ask me:
 > 📩 [Bushmakin07@gmail.com](mailto:Bushmakin07@gmail.com)
 
 ---
-
-## 🦄 License
-
-MIT — use it freely, just don’t forget to drop a star ⭐
