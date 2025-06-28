@@ -1,19 +1,19 @@
 .hero {
-  background-color: #fff;
+  background-color: var(--color-white);
   padding-top: 2px;
-  padding-bottom: 120px;
+  padding-bottom: 100px;
   position: relative;
-  transition: padding-bottom 0.3s ease;
+  transition: padding-bottom var(--transition-fast);
 }
 .hero.open {
   padding-bottom: 30px;
-  box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-inset-reverse);
 }
 .hero__content {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 40px;
+  gap: 10px;
   flex-direction: row;
 }
 .hero__side-image {
@@ -49,7 +49,7 @@
 .hero__text p {
   margin-top: 20px;
   font-size: 18px;
-  color: #444;
+  color: var(--color-text-secondary);
 }
 .btn-link {
   display: flex;
@@ -59,19 +59,19 @@
   margin-top: auto;
   margin-bottom: 0;
   font-weight: 600;
-  color: #0072ce;
+  color: var(--color-primary);
   text-decoration: none;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 10px;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-fast);
   animation: bounce 2s infinite;
 }
 .hero_title_h3 {
   font-size: 18px;
   font-weight: 700;
-  color: #0072ce;
+  color: var(--color-primary);
   margin-bottom: 20px;
   margin-top: 20px;
 }
@@ -80,7 +80,7 @@
   height: 24px;
   margin-left: 0;
   margin-top: 8px;
-  fill: #0072ce;
+  fill: var(--color-primary);
   display: block;
   opacity: 1;
   visibility: visible;
@@ -100,14 +100,14 @@
 .hero_consil_memeber {
   font-size: 14px;
   font-weight: 600;
-  color: #0072ce;
+  color: var(--color-primary);
 }
 .icon-circle-up {
   width: 24px;
   height: 24px;
   margin-left: 0;
   margin-top: 8px;
-  fill: #0072ce;
+  fill: var(--color-primary);
   display: block;
   opacity: 1;
   visibility: visible;
@@ -128,7 +128,7 @@
   gap: 6px;
   background: transparent;
   border: none;
-  color: #0072ce;
+  color: var(--color-primary);
   font-weight: 600;
   cursor: pointer;
   animation: bounce 2s infinite;
@@ -146,7 +146,8 @@
 
 .company-accordion-wrapper {
   overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.3s ease;
+  transition: max-height var(--transition-medium),
+    opacity var(--transition-fast);
   opacity: 0;
   max-height: 0;
   display: block;
@@ -156,12 +157,12 @@
   margin-top: 30px;
   opacity: 1;
   max-height: none;
-  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-inset);
 }
 
 .accordion-section {
   margin-bottom: 32px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 20px;
 }
 
@@ -171,9 +172,13 @@
 
 /* Мобайл — до 767px */
 @media (max-width: 767px) {
+  .hero {
+    padding-top: 1px;
+    padding-bottom: 20px;
+  }
   .hero__content {
     flex-direction: column-reverse;
-    gap: 32px;
+    gap: 10px;
   }
 
   .hero__text {
@@ -198,9 +203,6 @@
     display: block;
     max-height: 32px;
     width: auto;
-  }
-  .accordion-close {
-    display: flex !important;
   }
 }
 

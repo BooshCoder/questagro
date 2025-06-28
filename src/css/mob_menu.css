@@ -30,7 +30,7 @@
   .icon-burger-menu {
     width: 28px;
     height: 28px;
-    fill: #0072ce;
+    fill: var(--color-primary);
     flex-shrink: 0;
   }
 
@@ -41,9 +41,9 @@
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
+    background: var(--color-white);
+    box-shadow: var(--shadow-dark);
+    transition: right var(--transition-fast);
     z-index: 1000;
     padding: 80px 20px 20px;
   }
@@ -55,7 +55,7 @@
   .nav-item a {
     padding: 15px 0;
     display: block;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
   }
 
   /* Кнопка закриття меню - показуємо тільки на мобілці */
@@ -75,21 +75,21 @@
     z-index: 1001;
     padding: 0;
     font-size: 14px;
-    color: #0072ce;
+    color: var(--color-primary);
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
   }
 
   .nav-close:hover {
     background: rgba(0, 114, 206, 0.2);
-    color: #0072ce;
+    color: var(--color-primary);
     transform: scale(1.1);
   }
 }
 
 /* Загальні стилі - БЕЗ медіа запиту */
 .nav-list {
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
 }
 
 /* Десктопні стилі - ховаємо кнопку закриття */

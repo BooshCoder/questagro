@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async () => {
   async function loadPartial(path) {
     const res = await fetch(path);
@@ -31,6 +30,41 @@ if (closeBtn) {
     closeBurgerMenu();
   });
 }
+
+// Додаємо закриття меню при кліку на навігаційні посилання
+const navLinks = header.querySelectorAll('.nav-item a');
+if (navLinks.length > 0) {
+  const { closeBurgerMenu } = await import('./refs.js');
+  
+  console.log('✅ Навігаційні посилання знайдено, додаємо обробники закриття');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeBurgerMenu();
+      
+      // Отримуємо href посилання
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          // Отримуємо висоту хедера
+          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+          // Отримуємо позицію секції
+          const sectionTop = targetSection.offsetTop;
+          // Прокручуємо з відступом від хедера
+          window.scrollTo({
+            top: sectionTop - headerHeight - 20, // 20px додатковий відступ
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+}
+
   document.getElementById('footer')?.appendChild(footer);
   
   const sections = {
@@ -70,8 +104,16 @@ if (closeBtn) {
             hero?.classList.add('open');
 
             setTimeout(() => {
-              accordion.scrollIntoView({ behavior: 'smooth' });
-            }, 400);
+              // Отримуємо висоту хедера
+              const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+              // Отримуємо позицію акордеону
+              const accordionTop = accordion.offsetTop;
+              // Прокручуємо з відступом від хедера
+              window.scrollTo({
+                top: accordionTop - headerHeight - 20, // 20px додатковий відступ
+                behavior: 'smooth'
+              });
+            }, 200);
           });
 
           closeBtn.addEventListener('click', () => {
@@ -83,7 +125,18 @@ if (closeBtn) {
 
             setTimeout(() => {
               accordion.hidden = true;
-            }, 400);
+              
+              // Прокручуємо до секції "Агрономія"
+              const agronomySection = document.getElementById('agronomy');
+              if (agronomySection) {
+                const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                const agronomyTop = agronomySection.offsetTop;
+                window.scrollTo({
+                  top: agronomyTop - headerHeight - 20,
+                  behavior: 'smooth'
+                });
+              }
+            }, 200);
           });
         }
       }
