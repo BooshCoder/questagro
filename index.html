@@ -26,5 +26,22 @@
     <div id="footer"></div>
 
     <script type="module" src="/src/js/main.js"></script>
+    <script>
+      setTimeout(() => {
+        const btn = document.querySelector(
+          '.btn-link[data-toggle="accordion"]'
+        );
+        const target = document.querySelector('#agronomy');
+
+        if (btn && target) {
+          btn.addEventListener('click', e => {
+            e.preventDefault();
+            const isHidden = target.hasAttribute('hidden');
+            target.toggleAttribute('hidden');
+            btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+          });
+        }
+      }, 100);
+    </script>
   </body>
 </html>

@@ -1,11 +1,18 @@
 @import './reset.css';
 @import './base.css';
-@import './components.css';
-@import './responsive.css';
-@import './agronomy.css';
-@import './precision.css';
-@import './company.css';
+
+/* layout / containers */
 @import './header.css';
 @import './footer.css';
+
+/* секції */
+@import './company.css';
+@import './agronomy.css';
+@import './precision.css';
 @import './education.css';
 @import './feedback.css';
+
+/* утиліти / адаптив */
+@import './components.css';
+@import './responsive.css';
+@import './mob_menu.css';
