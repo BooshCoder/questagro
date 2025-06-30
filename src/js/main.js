@@ -72,7 +72,8 @@ if (navLinks.length > 0) {
     agronomy: '/partials/agronomy.html',
     precision: '/partials/precision.html',
     education: '/partials/education.html',
-    feedback: '/partials/feedback.html'
+    feedback: '/partials/feedback.html',
+    'agronomy-details': '/partials/agronomy-details-content.html'
   };
 
   for (const [id, path] of Object.entries(sections)) {

@@ -1,0 +1,40 @@
+.agronomy {
+  background-color: var(--color-bg);
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+.agronomy .container {
+  text-align: center;
+}
+
+.agronomy h2 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.agronomy p {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  margin: 0 auto 24px;
+}
+
+.agronomy .btn-primary {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color var(--transition-fast);
+  text-decoration: none;
+  text-transform: none;
+}
+
+.agronomy .btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
