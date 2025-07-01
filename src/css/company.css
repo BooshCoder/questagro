@@ -150,7 +150,7 @@
   height: 24px;
   margin-left: 0;
   margin-top: 8px;
-  fill: var(--color-primary);
+  fill: var(--color-white);
   display: block;
   opacity: 1;
   visibility: visible;
@@ -158,19 +158,7 @@
 .icon-circle-up.icon--bounce {
   animation: bounce 2s infinite;
 }
-.accordion-close {
-  margin: 30px auto 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  color: var(--color-primary);
-  font-weight: 600;
-  cursor: pointer;
-  animation: bounce 2s infinite;
-}
+
 .icon--bounce {
   animation: bounce 2s infinite;
 }
@@ -230,6 +218,47 @@
   border-radius: 2px;
 }
 
+.accordion-close--fixed {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  top: auto;
+  z-index: 1001;
+  background: var(--color-primary);
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 18px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  opacity: 0.96;
+  transition: opacity 0.2s, pointer-events 0.2s;
+  font-size: 15px;
+}
+
+.accordion-close--fixed svg {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 0;
+}
+.accordion-close--fixed span {
+  padding: 0 2px;
+  font-size: 15px;
+  line-height: 1.1;
+}
+.accordion-close--fixed:hover,
+.accordion-close--fixed:focus {
+  opacity: 1;
+}
+.accordion-close--fixed.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 /** ========================== */
 /** === MEDIA QUERIES START === */
 /** ========================== */
@@ -266,6 +295,14 @@
     display: block;
     max-height: 32px;
     width: auto;
+  }
+
+  .accordion-close {
+    bottom: 24px;
+    right: 8px;
+    top: auto;
+    padding: 6px 12px;
+    font-size: 15px;
   }
 }
 
@@ -305,5 +342,22 @@
 
   .hero_image {
     max-width: 380px;
+  }
+}
+
+@media (max-width: 767px) {
+  .accordion-close--fixed {
+    bottom: 40px;
+    right: 8px;
+    top: auto;
+    padding: 18px 10px;
+    font-size: 14px;
+  }
+  .accordion-close--fixed svg {
+    width: 12px;
+    height: 12px;
+  }
+  .accordion-close--fixed span {
+    font-size: 12px;
   }
 }

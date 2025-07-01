@@ -94,13 +94,34 @@ if (navLinks.length > 0) {
         const closeBtn = accordion?.querySelector('.accordion-close');
         const hero = document.querySelector('.hero');
 
+        // Intersection Observer для кнопки
+        if (accordion && closeBtn) {
+          const observer = new window.IntersectionObserver(
+            (entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+                  closeBtn.classList.remove('is-hidden');
+                } else {
+                  closeBtn.classList.add('is-hidden');
+                }
+              });
+            },
+            {
+              threshold: [0, 0.2, 1]
+            }
+          );
+          observer.observe(accordion);
+        }
+
         if (btn && accordion && closeBtn) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
             btn.style.opacity = '0';
             btn.style.pointerEvents = 'none';
             accordion.hidden = false;
-            accordion.classList.add('open');
+            requestAnimationFrame(() => {
+              accordion.classList.add('open');
+            });
             closeBtn.style.display = 'flex';
             hero?.classList.add('open');
 
@@ -114,7 +135,7 @@ if (navLinks.length > 0) {
                 top: accordionTop - headerHeight - 20, // 20px додатковий відступ
                 behavior: 'smooth'
               });
-            }, 200);
+            }, 400);
           });
 
           closeBtn.addEventListener('click', () => {
@@ -126,7 +147,6 @@ if (navLinks.length > 0) {
 
             setTimeout(() => {
               accordion.hidden = true;
-              
               // Прокручуємо до секції "Агрономія"
               const agronomySection = document.getElementById('agronomy');
               if (agronomySection) {
@@ -137,7 +157,7 @@ if (navLinks.length > 0) {
                   behavior: 'smooth'
                 });
               }
-            }, 200);
+            }, 600); // Чекаємо завершення анімації max-height
           });
         }
       }
