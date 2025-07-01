@@ -262,49 +262,6 @@
 /** ========================== */
 /** === MEDIA QUERIES START === */
 /** ========================== */
-/* Мобайл — до 767px */
-@media (max-width: 767px) {
-  .hero {
-    padding-top: 1px;
-    padding-bottom: 20px;
-  }
-  .hero__content {
-    flex-direction: column-reverse;
-    gap: 10px;
-  }
-
-  .hero__text {
-    align-items: center;
-    text-align: center;
-  }
-
-  .btn-link {
-    position: static;
-    margin-top: 24px;
-  }
-
-  .hero__side-image {
-    justify-content: center;
-  }
-
-  .hero_image {
-    max-width: 240px;
-  }
-
-  .logo {
-    display: block;
-    max-height: 32px;
-    width: auto;
-  }
-
-  .accordion-close {
-    bottom: 24px;
-    right: 8px;
-    top: auto;
-    padding: 6px 12px;
-    font-size: 15px;
-  }
-}
 
 /* Таблет — до 1399px */
 @media (min-width: 768px) and (max-width: 1399px) {
@@ -327,7 +284,7 @@
 }
 
 /* Десктоп — 1400px+ */
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .container {
     max-width: 1320px;
   }
@@ -350,7 +307,7 @@
     bottom: 40px;
     right: 8px;
     top: auto;
-    padding: 18px 10px;
+    padding: 14px 10px 24px;
     font-size: 14px;
   }
   .accordion-close--fixed svg {
