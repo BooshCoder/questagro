@@ -38,3 +38,334 @@
 .agronomy .btn-primary:hover {
   background-color: var(--color-primary-hover);
 }
+
+/* Hero-плашка */
+.agro-hero {
+  background: var(--color-secondary);
+  color: #fff;
+  padding: 48px 0 32px 0;
+  margin-bottom: 0;
+}
+.agro-hero h1 {
+  font-size: clamp(28px, 6vw, 48px);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+/* Кнопка на головну */
+.agro-back-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin: 24px 0 0 0;
+}
+.agro-back-btn-bottom {
+  margin: 40px 0 0 0;
+  padding-bottom: 32px;
+  justify-content: flex-end;
+}
+.agro-back-btn .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+.agro-back-btn .btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+.arrow-left {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Блоки-картки */
+.agro-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+.details-block {
+  background: #fff;
+  box-shadow: var(--shadow-medium);
+  border-left: 6px solid var(--color-secondary);
+  border-radius: 8px;
+  padding: 32px 24px;
+  margin: 0 auto;
+  max-width: 900px;
+  transition: box-shadow var(--transition-fast);
+}
+.details-block:hover {
+  box-shadow: 0 4px 24px rgba(22, 101, 52, 0.12);
+}
+.details-block h2,
+.details-block h3 {
+  color: var(--color-primary);
+  margin-top: 0;
+}
+.details-block ul,
+.details-block ol,
+.details-block .benefits-list,
+.details-block .details-list-nested {
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-left: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Fade-in (AOS fallback for no-js) */
+[data-aos='fade-up'] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+[data-aos='fade-up'].aos-animate {
+  opacity: 1;
+  transform: none;
+}
+
+/* Адаптивність */
+@media (max-width: 700px) {
+  .agro-hero {
+    padding: 32px 0 20px 0;
+  }
+  .agro-hero h1 {
+    font-size: 24px;
+  }
+  .details-block {
+    padding: 18px 6px;
+    max-width: 100%;
+  }
+  .agro-blocks {
+    gap: 18px;
+  }
+  .agro-back-btn,
+  .agro-back-btn-bottom {
+    margin: 18px 0 0 0;
+  }
+}
+
+/* Акордеон агрономічних етапів */
+.agro-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.agro-acc-item {
+  border-radius: 8px;
+  background: #f8faf9;
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+.agro-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 18px 20px;
+  font-size: 18px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  position: relative;
+}
+.agro-acc-btn:hover,
+.agro-acc-btn[aria-expanded='true'] {
+  background: #eef6f0;
+}
+.agro-acc-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-secondary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.agro-acc-title {
+  flex: 1 1 auto;
+  text-align: left;
+}
+.agro-acc-arrow {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  margin-right: 12px;
+  transition: transform 0.3s;
+  background: none;
+  border: none;
+  position: relative;
+}
+.agro-acc-arrow::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-bottom: 3px solid var(--color-secondary);
+  border-right: 3px solid var(--color-secondary);
+  transform: rotate(45deg);
+  position: absolute;
+  left: 4px;
+  top: 2px;
+}
+.agro-acc-btn[aria-expanded='true'] .agro-acc-arrow {
+  transform: rotate(180deg);
+}
+.agro-acc-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  border-left: 4px solid var(--color-secondary);
+  margin-left: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.agro-acc-panel.open {
+  padding: 18px 24px 18px 24px;
+  max-height: 600px;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (max-width: 700px) {
+  .agro-acc-btn {
+    font-size: 16px;
+    padding: 18px 14px;
+    gap: 12px;
+    min-height: 48px;
+  }
+  .agro-acc-num {
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
+  }
+  .agro-acc-title {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .agro-acc-arrow {
+    width: 28px;
+    height: 28px;
+    margin-left: 6px;
+    margin-right: 10px;
+  }
+  .agro-acc-arrow::before {
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 4px;
+    border-width: 3px;
+  }
+  .agro-acc-item {
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(22, 101, 52, 0.06);
+  }
+  .agro-acc-panel,
+  .agro-acc-panel.open {
+    margin-left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-left: 5px solid var(--color-secondary);
+    font-size: 15px;
+  }
+  .agro-acc-panel {
+    padding: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .agro-acc-panel.open {
+    padding: 14px 10px 14px 16px;
+    max-height: 600px;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.details-block.benefits-service {
+  background: #fff;
+  border-left: 8px solid var(--color-primary);
+  box-shadow: 0 4px 32px rgba(162, 62, 72, 0.1);
+  padding: 32px 24px;
+  margin: 0 auto;
+  max-width: 900px;
+  position: relative;
+}
+.details-block.benefits-service h2 {
+  color: var(--color-primary);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-bottom: 18px;
+  display: block;
+}
+.details-block.benefits-service h2::before {
+  content: none;
+}
+.details-block.benefits-service .benefits-list {
+  counter-reset: benefit;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.details-block.benefits-service .benefits-list > li {
+  display: block;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 16px;
+  padding: 0;
+  min-height: unset;
+  gap: 0;
+}
+.details-block.benefits-service .benefits-list > li::before {
+  display: none;
+}
+.details-block.benefits-service .benefits-list strong {
+  color: var(--color-primary);
+  font-weight: 700;
+  display: inline;
+}
+.details-block.benefits-service .benefits-list p {
+  margin: 4px 0 0 0;
+  color: #6a2b34;
+  font-size: 1em;
+}
+.details-block.benefits-service .details-list-nested {
+  margin: 8px 0 0 18px;
+  padding-left: 0;
+  list-style: disc inside;
+  color: #7a3a45;
+  font-size: 0.98em;
+}
+@media (max-width: 700px) {
+  .details-block.benefits-service {
+    padding: 18px 6px;
+    max-width: 100%;
+  }
+  .details-block.benefits-service h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .details-block.benefits-service .benefits-list > li {
+    margin-bottom: 12px;
+    font-size: 0.98em;
+  }
+}

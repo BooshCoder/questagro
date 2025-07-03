@@ -89,10 +89,12 @@ if (navLinks.length > 0) {
 
       // Акордеон для компанії
       if (id === 'company') {
-        const btn = document.querySelector('.btn-link');
-        const accordion = document.getElementById('companyAccordion');
+        // Шукаємо тільки в межах контейнера company
+        const companyContainer = container;
+        const btn = companyContainer.querySelector('.btn-link');
+        const accordion = companyContainer.querySelector('#companyAccordion');
         const closeBtn = accordion?.querySelector('.accordion-close');
-        const hero = document.querySelector('.hero');
+        const hero = companyContainer.querySelector('.hero');
 
         // Intersection Observer для кнопки
         if (accordion && closeBtn) {
@@ -162,5 +164,31 @@ if (navLinks.length > 0) {
         }
       }
     }
+  }
+
+  // Agro-accordion logic
+  function initAgroAccordion() {
+    const items = document.querySelectorAll('.agro-acc-item');
+    items.forEach(item => {
+      const btn = item.querySelector('.agro-acc-btn');
+      const panel = item.querySelector('.agro-acc-panel');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // Закриваємо всі
+        document.querySelectorAll('.agro-acc-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        document.querySelectorAll('.agro-acc-panel').forEach(p => p.classList.remove('open'));
+        // Відкриваємо поточний, якщо був закритий
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          panel.classList.add('open');
+        }
+      });
+    });
+  }
+
+  // Викликаємо акордеон після DOMContentLoaded
+  if (document.querySelector('.agro-accordion')) {
+    initAgroAccordion();
   }
 });

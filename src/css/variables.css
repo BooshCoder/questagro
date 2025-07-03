@@ -1,8 +1,9 @@
 :root {
   /* Основні кольори */
-  --color-primary: #0072ce;
-  --color-primary-hover: #004abf;
+  --color-primary: #166534;
+  --color-primary-hover: #0e4222;
   --color-secondary: #166534;
+  --color-secondary-hover: #0e4222;
   --color-accent: #166534;
 
   /* Нейтральні кольори */
