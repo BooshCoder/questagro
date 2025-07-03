@@ -10,8 +10,8 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Стилі -->
-    <script type="module" crossorigin src="/assets/index-6W10mfwz.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-By-UfDM8.css">
+    <script type="module" crossorigin src="/assets/index-DtdtX3Go.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BwRgeXUb.css">
   </head>
   <body>
     <div id="header"></div>
@@ -19,29 +19,12 @@
     <main>
       <div id="company"></div>
       <div id="agronomy"></div>
-      <div id="precision"></div>
-      <div id="education"></div>
-      <div id="feedback"></div>
+      <!-- <div id="precision"></div> -->
+      <!-- <div id="education"></div> -->
+      <!-- <div id="feedback"></div> -->
     </main>
 
     <div id="footer"></div>
 
-    <script>
-      setTimeout(() => {
-        const btn = document.querySelector(
-          '.btn-link[data-toggle="accordion"]'
-        );
-        const target = document.querySelector('#agronomy');
-
-        if (btn && target) {
-          btn.addEventListener('click', e => {
-            e.preventDefault();
-            const isHidden = target.hasAttribute('hidden');
-            target.toggleAttribute('hidden');
-            btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-          });
-        }
-      }, 100);
-    </script>
   </body>
 </html>
