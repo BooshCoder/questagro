@@ -1,6 +1,8 @@
 name: Deploy to GitHub Pages
 
-on: {}
+on:
+  push:
+    branches: [gh-pages]
 
 jobs:
   build-and-deploy:

@@ -1,32 +1,13 @@
 import '../css/main.css';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Визначаємо базовий шлях для GitHub Pages
-  const getBasePath = () => {
-    const pathname = window.location.pathname;
-    
-    // Якщо ми на GitHub Pages і шлях містить назву репозиторію
-    if (pathname.includes('/QuestAGRO_cursor/')) {
-      return '/QuestAGRO_cursor/';
-    }
-    
-    // Для всіх інших випадків (включаючи кастомний домен)
-    // використовуємо базовий шлях GitHub Pages
-    return '/QuestAGRO_cursor/';
-  };
-
-  const basePath = getBasePath();
-
   async function loadPartial(path) {
-    // Додаємо базовий шлях до відносного шляху
-    const fullPath = path.startsWith('./') ? basePath + path.slice(2) : basePath + path;
-    const res = await fetch(fullPath);
+    const res = await fetch(path);
     const html = await res.text();
     const wrapper = document.createElement('div');
     wrapper.innerHTML = html;
     return wrapper.children[0] || wrapper;
   }
-
 
   const header = await loadPartial('./partials/header.html');
   const footer = await loadPartial('./partials/footer.html');
