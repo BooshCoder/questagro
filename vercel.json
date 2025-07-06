@@ -12,6 +12,14 @@
   ],
   "routes": [
     {
+      "src": "/QuestAGRO_cursor/partials/(.*)",
+      "dest": "/partials/$1"
+    },
+    {
+      "src": "/QuestAGRO_cursor/src/(.*)",
+      "dest": "/src/$1"
+    },
+    {
       "src": "/partials/(.*)",
       "dest": "/partials/$1"
     },

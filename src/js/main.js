@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  // Визначаємо базовий шлях для GitHub Pages
+  const getBasePath = () => {
+    const pathname = window.location.pathname;
+    const hostname = window.location.hostname;
+    
+    // Якщо ми на кастомному домені (questagro.com)
+    if (hostname === 'www.questagro.com' || hostname === 'questagro.com') {
+      return '/';
+    }
+    
+    // Якщо ми на GitHub Pages і шлях містить назву репозиторію
+    if (pathname.includes('/QuestAGRO_cursor/')) {
+      return '/QuestAGRO_cursor/';
+    }
+    
+    // Для локальної розробки або якщо сайт розгорнутий в корені домену
+    return '/';
+  };
+
+  const basePath = getBasePath();
+
   async function loadPartial(path) {
-    const res = await fetch(path);
+    // Додаємо базовий шлях до відносного шляху
+    const fullPath = path.startsWith('./') ? basePath + path.slice(2) : basePath + path;
+    const res = await fetch(fullPath);
     const html = await res.text();
     const wrapper = document.createElement('div');
     wrapper.innerHTML = html;
@@ -8,8 +31,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 
-  const header = await loadPartial('/partials/header.html');
-  const footer = await loadPartial('/partials/footer.html');
+  const header = await loadPartial('./partials/header.html');
+  const footer = await loadPartial('./partials/footer.html');
 
   document.getElementById('header')?.appendChild(header);
   // Підʼєднуємо burger menu тільки після вставки header в DOM
@@ -68,12 +91,12 @@ if (navLinks.length > 0) {
   document.getElementById('footer')?.appendChild(footer);
   
   const sections = {
-    company: '/partials/company.html',
-    agronomy: '/partials/agronomy.html',
-    precision: '/partials/precision.html',
-    education: '/partials/education.html',
-    feedback: '/partials/feedback.html',
-    'agronomy-details': '/partials/agronomy-details-content.html'
+    company: './partials/company.html',
+    agronomy: './partials/agronomy.html',
+    precision: './partials/precision.html',
+    education: './partials/education.html',
+    feedback: './partials/feedback.html',
+    'agronomy-details': './partials/agronomy-details.html'
   };
 
   for (const [id, path] of Object.entries(sections)) {

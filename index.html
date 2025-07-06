@@ -7,12 +7,54 @@
     />
     <meta charset="UTF-8" />
     <title>QuestAGRO</title>
-    <link rel="icon" href="./favicon-square.svg" type="image/svg+xml" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Стилі -->
-    <link rel="stylesheet" href="./src/css/main.css" />
+
+    <script>
+      // Визначаємо базовий шлях для GitHub Pages
+      const getBasePath = () => {
+        const pathname = window.location.pathname;
+        const hostname = window.location.hostname;
+
+        // Якщо ми на кастомному домені (questagro.com)
+        if (hostname === 'www.questagro.com' || hostname === 'questagro.com') {
+          return '/';
+        }
+
+        // Якщо ми на GitHub Pages і шлях містить назву репозиторію
+        if (pathname.includes('/QuestAGRO_cursor/')) {
+          return '/QuestAGRO_cursor/';
+        }
+
+        return '/';
+      };
+
+      const basePath = getBasePath();
+
+      // Додаємо favicon з правильним шляхом
+      const faviconSquare = document.createElement('link');
+      faviconSquare.rel = 'icon';
+      faviconSquare.href = basePath + 'favicon-square.svg';
+      faviconSquare.type = 'image/svg+xml';
+      document.head.appendChild(faviconSquare);
+
+      const favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.href = basePath + 'favicon.svg';
+      favicon.type = 'image/svg+xml';
+      document.head.appendChild(favicon);
+
+      const faviconIco = document.createElement('link');
+      faviconIco.rel = 'icon';
+      faviconIco.href = basePath + 'favicon.ico';
+      faviconIco.type = 'image/x-icon';
+      document.head.appendChild(faviconIco);
+
+      // Додаємо CSS з правильним шляхом
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = basePath + 'src/css/main.css';
+      document.head.appendChild(css);
+    </script>
   </head>
   <body>
     <div id="header"></div>
@@ -27,6 +69,12 @@
 
     <div id="footer"></div>
 
-    <script type="module" src="./src/js/main.js"></script>
+    <script>
+      // Використовуємо той самий basePath, що визначили вище
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = basePath + 'src/js/main.js';
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>

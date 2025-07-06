@@ -7,7 +7,7 @@ export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production';
   
   return {
-    base: isProduction ? './' : '/',
+    base: isProduction ? '/QuestAGRO_cursor/' : '/',
     build: {
       sourcemap: !isProduction,
       minify: isProduction ? 'terser' : false,
