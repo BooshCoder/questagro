@@ -4,20 +4,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Визначаємо базовий шлях для GitHub Pages
   const getBasePath = () => {
     const pathname = window.location.pathname;
-    const hostname = window.location.hostname;
-    
-    // Якщо ми на кастомному домені (questagro.com)
-    if (hostname === 'www.questagro.com' || hostname === 'questagro.com') {
-      return '/';
-    }
     
     // Якщо ми на GitHub Pages і шлях містить назву репозиторію
     if (pathname.includes('/QuestAGRO_cursor/')) {
       return '/QuestAGRO_cursor/';
     }
     
-    // Для локальної розробки або якщо сайт розгорнутий в корені домену
-    return '/';
+    // Для всіх інших випадків (включаючи кастомний домен)
+    // використовуємо базовий шлях GitHub Pages
+    return '/QuestAGRO_cursor/';
   };
 
   const basePath = getBasePath();
