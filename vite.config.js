@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production';
@@ -46,6 +47,14 @@ export default defineConfig(({ command, mode }) => {
       SortCss({
         sort: 'mobile-first',
       }),
+      viteStaticCopy({
+        targets: [
+          {
+            src: 'public/partials',
+            dest: ''
+          }
+        ]
+      })
     ],
     server: {
       port: 5173,
