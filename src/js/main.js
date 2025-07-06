@@ -87,7 +87,7 @@ if (navLinks.length > 0) {
     });
   });
 }
-
+// hfhhfhf
   document.getElementById('footer')?.appendChild(footer);
   
   const sections = {
