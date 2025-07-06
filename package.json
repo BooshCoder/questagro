@@ -1,21 +1,29 @@
 {
   "name": "questagro",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "vite preview --port 4173",
+    "lint": "eslint . --ext js,jsx,ts,tsx",
+    "format": "prettier --write ."
   },
-  "keywords": [],
+  "keywords": ["agriculture", "agronomy", "precision-farming", "vite"],
   "author": "Bushmakin_Eu <Bushmakin07@gmail.com>",
   "license": "ISC",
-  "description": "",
+  "description": "QuestAGRO - комплексний агрономічний супровід та точне землеробство",
   "devDependencies": {
     "glob": "^11.0.3",
     "postcss-sort-media-queries": "^5.2.0",
     "vite": "^6.3.5",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }

@@ -169,19 +169,76 @@ if (navLinks.length > 0) {
   // Agro-accordion logic
   function initAgroAccordion() {
     const items = document.querySelectorAll('.agro-acc-item');
+    
     items.forEach(item => {
       const btn = item.querySelector('.agro-acc-btn');
       const panel = item.querySelector('.agro-acc-panel');
+      
+      if (!btn || !panel) return;
+      
       btn.setAttribute('aria-expanded', 'false');
+      
       btn.addEventListener('click', () => {
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        // Закриваємо всі
-        document.querySelectorAll('.agro-acc-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-        document.querySelectorAll('.agro-acc-panel').forEach(p => p.classList.remove('open'));
-        // Відкриваємо поточний, якщо був закритий
+        
+        // Закриваємо всі інші акордеони
+        items.forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherBtn = otherItem.querySelector('.agro-acc-btn');
+            const otherPanel = otherItem.querySelector('.agro-acc-panel');
+            
+            if (otherBtn && otherPanel) {
+              otherBtn.setAttribute('aria-expanded', 'false');
+              otherPanel.classList.remove('open');
+              otherItem.classList.remove('active');
+            }
+          }
+        });
+        
+        // Відкриваємо/закриваємо поточний акордеон
         if (!isOpen) {
           btn.setAttribute('aria-expanded', 'true');
-          panel.classList.add('open');
+          item.classList.add('active');
+          
+          // Невелика затримка для плавності
+          requestAnimationFrame(() => {
+            panel.classList.add('open');
+            
+            // Чекаємо завершення анімації відкриття, потім прокручуємо
+            setTimeout(() => {
+              const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+              
+              // Знаходимо позицію відкритого контенту відносно екрану
+              const panelRect = panel.getBoundingClientRect();
+              const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              
+              // Прокручуємо так, щоб верхній край відкритого контенту був на верхньому краю екрану
+              const scrollTarget = currentScrollTop + panelRect.top - headerHeight;
+              
+              window.scrollTo({
+                top: scrollTarget,
+                behavior: 'smooth'
+              });
+            }, 600); // Чекаємо завершення анімації відкриття
+          });
+          
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+          item.classList.remove('active');
+          panel.classList.remove('open');
+        }
+      });
+      
+      // Додаємо hover ефекти
+      btn.addEventListener('mouseenter', () => {
+        if (btn.getAttribute('aria-expanded') !== 'true') {
+          item.style.transform = 'translateY(-2px)';
+        }
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        if (btn.getAttribute('aria-expanded') !== 'true') {
+          item.style.transform = 'translateY(0)';
         }
       });
     });

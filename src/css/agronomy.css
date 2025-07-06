@@ -162,10 +162,20 @@
   gap: 16px;
 }
 .agro-acc-item {
-  border-radius: 8px;
-  background: #f8faf9;
+  border-radius: 12px;
+  background: var(--accordion-bg);
   box-shadow: var(--shadow-light);
   overflow: hidden;
+  transition: all var(--accordion-hover-duration) var(--accordion-easing);
+  border: 2px solid transparent;
+}
+.agro-acc-item:hover {
+  box-shadow: var(--accordion-shadow-hover);
+  transform: translateY(-2px);
+}
+.agro-acc-item.active {
+  border-color: var(--accordion-border-active);
+  box-shadow: var(--accordion-shadow-active);
 }
 .agro-acc-btn {
   width: 100%;
@@ -175,43 +185,53 @@
   background: none;
   border: none;
   outline: none;
-  padding: 18px 20px;
+  padding: 20px 24px;
   font-size: 18px;
   font-family: var(--font-heading);
   font-weight: 600;
   color: var(--color-text);
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition: all var(--accordion-hover-duration) var(--accordion-easing);
   position: relative;
 }
-.agro-acc-btn:hover,
+.agro-acc-btn:hover {
+  background: var(--accordion-bg-hover);
+}
 .agro-acc-btn[aria-expanded='true'] {
-  background: #eef6f0;
+  background: var(--accordion-bg-active);
+  color: var(--color-primary);
+}
+.agro-acc-btn[aria-expanded='true'] .agro-acc-num {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #1a7a3a 100%);
+  transform: scale(1.05);
 }
 .agro-acc-num {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: var(--color-secondary);
   color: #fff;
   border-radius: 50%;
   font-size: 20px;
   font-weight: 700;
   flex-shrink: 0;
+  transition: all var(--accordion-hover-duration) var(--accordion-easing);
+  box-shadow: 0 4px 12px rgba(22, 101, 52, 0.2);
 }
 .agro-acc-title {
   flex: 1 1 auto;
   text-align: left;
+  transition: color 0.3s ease;
 }
 .agro-acc-arrow {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   margin-left: 8px;
   margin-right: 12px;
-  transition: transform 0.3s;
+  transition: all var(--accordion-duration) var(--accordion-easing);
   background: none;
   border: none;
   position: relative;
@@ -219,84 +239,66 @@
 .agro-acc-arrow::before {
   content: '';
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-bottom: 3px solid var(--color-secondary);
   border-right: 3px solid var(--color-secondary);
   transform: rotate(45deg);
   position: absolute;
-  left: 4px;
-  top: 2px;
+  left: 5px;
+  top: 3px;
+  transition: all var(--accordion-duration) var(--accordion-easing);
 }
 .agro-acc-btn[aria-expanded='true'] .agro-acc-arrow {
   transform: rotate(180deg);
 }
+.agro-acc-btn[aria-expanded='true'] .agro-acc-arrow::before {
+  border-color: var(--color-primary);
+}
 .agro-acc-panel {
   max-height: 0;
   overflow: hidden;
-  background: #fff;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0;
+  background: linear-gradient(135deg, #fff 0%, #fafbfa 100%);
+  transition: all var(--accordion-duration) var(--accordion-easing);
+  padding: 0 24px;
   border-left: 4px solid var(--color-secondary);
   margin-left: 40px;
-  width: 100%;
+  width: calc(100% - 40px);
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(-10px);
 }
 .agro-acc-panel.open {
-  padding: 18px 24px 18px 24px;
-  max-height: 600px;
-  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 24px 24px 24px 24px;
+  max-height: 800px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--accordion-duration) var(--accordion-easing);
+  border-left: none;
 }
-@media (max-width: 700px) {
-  .agro-acc-btn {
-    font-size: 16px;
-    padding: 18px 14px;
-    gap: 12px;
-    min-height: 48px;
-  }
-  .agro-acc-num {
-    width: 32px;
-    height: 32px;
-    font-size: 17px;
-  }
-  .agro-acc-title {
-    font-size: 16px;
-    line-height: 1.3;
-  }
-  .agro-acc-arrow {
-    width: 28px;
-    height: 28px;
-    margin-left: 6px;
-    margin-right: 10px;
-  }
-  .agro-acc-arrow::before {
-    width: 18px;
-    height: 18px;
-    left: 3px;
-    top: 4px;
-    border-width: 3px;
-  }
-  .agro-acc-item {
-    margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(22, 101, 52, 0.06);
-  }
-  .agro-acc-panel,
-  .agro-acc-panel.open {
-    margin-left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    border-left: 5px solid var(--color-secondary);
-    font-size: 15px;
-  }
-  .agro-acc-panel {
-    padding: 0;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .agro-acc-panel.open {
-    padding: 14px 10px 14px 16px;
-    max-height: 600px;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.agro-acc-panel .details-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.agro-acc-panel .details-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(22, 101, 52, 0.08);
+  transition: all var(--accordion-hover-duration) ease;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+.agro-acc-panel.open .details-list li {
+  opacity: 1;
+  transform: translateX(0);
+}
+.agro-acc-panel .details-list li:last-child {
+  border-bottom: none;
+}
+.agro-acc-panel .details-list li:hover {
+  background: rgba(22, 101, 52, 0.02);
+  padding-left: 8px;
+  border-radius: 6px;
 }
 
 .details-block.benefits-service {
@@ -368,4 +370,110 @@
     margin-bottom: 12px;
     font-size: 0.98em;
   }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 700px) {
+  .agro-accordion {
+    gap: 12px;
+  }
+
+  .agro-acc-item {
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+
+  .agro-acc-btn {
+    font-size: 16px;
+    padding: 16px 18px;
+    gap: 12px;
+    min-height: 52px;
+  }
+
+  .agro-acc-num {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .agro-acc-title {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .agro-acc-arrow {
+    width: 24px;
+    height: 24px;
+    margin-left: 6px;
+    margin-right: 8px;
+  }
+
+  .agro-acc-arrow::before {
+    width: 16px;
+    height: 16px;
+    left: 4px;
+    top: 2px;
+    border-width: 2.5px;
+  }
+
+  .agro-acc-panel,
+  .agro-acc-panel.open {
+    margin-left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-left: 4px solid var(--color-secondary);
+    font-size: 15px;
+  }
+
+  .agro-acc-panel {
+    padding: 0 18px;
+  }
+
+  .agro-acc-panel.open {
+    padding: 20px 18px 20px 18px;
+    max-height: 600px;
+    border-left: none;
+  }
+
+  .agro-acc-panel .details-list li {
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .agro-acc-panel .details-list li:hover {
+    padding-left: 6px;
+  }
+}
+
+/* Анімація появи елементів списку з затримкою */
+.agro-acc-panel.open .details-list li:nth-child(1) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 2);
+}
+.agro-acc-panel.open .details-list li:nth-child(2) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 3);
+}
+.agro-acc-panel.open .details-list li:nth-child(3) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 4);
+}
+.agro-acc-panel.open .details-list li:nth-child(4) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 5);
+}
+.agro-acc-panel.open .details-list li:nth-child(5) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 6);
+}
+.agro-acc-panel.open .details-list li:nth-child(6) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 7);
+}
+.agro-acc-panel.open .details-list li:nth-child(7) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 8);
+}
+.agro-acc-panel.open .details-list li:nth-child(8) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 9);
+}
+.agro-acc-panel.open .details-list li:nth-child(9) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 10);
+}
+.agro-acc-panel.open .details-list li:nth-child(10) {
+  transition-delay: calc(var(--accordion-stagger-delay) * 11);
 }

@@ -33,4 +33,18 @@
   /* Переходи */
   --transition-fast: 0.3s ease;
   --transition-medium: 0.5s ease;
+
+  /* Анімації акордеону */
+  --accordion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --accordion-duration: 0.5s;
+  --accordion-hover-duration: 0.3s;
+  --accordion-stagger-delay: 0.05s;
+
+  /* Кольори акордеону */
+  --accordion-bg: #f8faf9;
+  --accordion-bg-hover: linear-gradient(135deg, #eef6f0 0%, #f0f8f2 100%);
+  --accordion-bg-active: linear-gradient(135deg, #e8f4ec 0%, #f0f8f2 100%);
+  --accordion-border-active: var(--color-secondary);
+  --accordion-shadow-hover: 0 8px 32px rgba(22, 101, 52, 0.12);
+  --accordion-shadow-active: 0 12px 40px rgba(22, 101, 52, 0.15);
 }
