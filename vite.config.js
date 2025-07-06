@@ -52,6 +52,10 @@ export default defineConfig(({ command, mode }) => {
           {
             src: 'public/partials',
             dest: ''
+          },
+          {
+            src: 'src/css',
+            dest: 'src'
           }
         ]
       })

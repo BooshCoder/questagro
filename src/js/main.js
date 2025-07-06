@@ -1,3 +1,5 @@
+import '../css/main.css';
+
 document.addEventListener('DOMContentLoaded', async () => {
   // Визначаємо базовий шлях для GitHub Pages
   const getBasePath = () => {
