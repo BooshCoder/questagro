@@ -173,7 +173,7 @@ if (navLinks.length > 0) {
     }
   }
 
-  // Agro-accordion logic
+  // 🔽 AgroAccordion logic START (перенесено з agronomy-details.js)
   function initAgroAccordion() {
     const items = document.querySelectorAll('.agro-acc-item');
     items.forEach(item => {
@@ -206,6 +206,7 @@ if (navLinks.length > 0) {
       });
     });
   }
+  // 🔼 AgroAccordion logic END
 
   // Викликаємо завжди після DOMContentLoaded
   initAgroAccordion();
