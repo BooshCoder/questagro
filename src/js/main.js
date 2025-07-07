@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/agronomy-details.css';
 
 document.addEventListener('DOMContentLoaded', async () => {
   async function loadPartial(path) {
@@ -88,6 +89,10 @@ if (navLinks.length > 0) {
         // console.log(`✅ Вставляємо секцію ${id}`);
       }
       container.appendChild(section);
+
+      if (id === 'agronomy-details') {
+        initAgroAccordion();
+      }
 
       // Акордеон для компанії
       if (id === 'company') {
