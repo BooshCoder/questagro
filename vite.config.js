@@ -7,7 +7,7 @@ export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production';
   
   return {
-    base: '/QuestAGRO_cursor/',
+    base: '/', // ✅ Виправлено для custom domain
     build: {
       sourcemap: !isProduction,
       minify: isProduction ? 'terser' : false,
@@ -51,11 +51,7 @@ export default defineConfig(({ command, mode }) => {
         targets: [
           {
             src: 'public/partials',
-            dest: ''
-          },
-          {
-            src: 'src/css',
-            dest: 'src'
+            dest: 'partials' // ✅ Виправлено шлях
           }
         ]
       })

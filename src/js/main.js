@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     return wrapper.children[0] || wrapper;
   }
 
-  const header = await loadPartial('./partials/header.html');
-  const footer = await loadPartial('./partials/footer.html');
+  // ✅ Змінено шляхи з ./partials/ на /partials/
+  const header = await loadPartial('/partials/header.html');
+  const footer = await loadPartial('/partials/footer.html');
 
   document.getElementById('header')?.appendChild(header);
   // Підʼєднуємо burger menu тільки після вставки header в DOM
@@ -65,16 +66,16 @@ if (navLinks.length > 0) {
     });
   });
 }
-// hfhhfhf
   document.getElementById('footer')?.appendChild(footer);
   
+  // ✅ Змінено всі шляхи з ./partials/ на /partials/
   const sections = {
-    company: './partials/company.html',
-    agronomy: './partials/agronomy.html',
-    precision: './partials/precision.html',
-    education: './partials/education.html',
-    feedback: './partials/feedback.html',
-    'agronomy-details': './partials/agronomy-details.html'
+    company: '/partials/company.html',
+    agronomy: '/partials/agronomy.html',
+    precision: '/partials/precision.html',
+    education: '/partials/education.html',
+    feedback: '/partials/feedback.html',
+    'agronomy-details': '/partials/agronomy-details.html'
   };
 
   for (const [id, path] of Object.entries(sections)) {
