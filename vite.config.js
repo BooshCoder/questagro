@@ -7,7 +7,7 @@ export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production';
   
   return {
-    base: '/', // ✅ Виправлено для custom domain
+    base: '/', // ✅ Виправлено для custom
     build: {
       sourcemap: !isProduction,
       minify: isProduction ? 'terser' : false,
