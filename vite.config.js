@@ -12,7 +12,10 @@ export default defineConfig(({ command, mode }) => {
       sourcemap: !isProduction,
       minify: isProduction ? 'terser' : false,
       rollupOptions: {
-        input: 'index.html',
+        input: {
+          main: 'index.html',
+          agronomy: 'agronomy-details.html'
+        },
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
