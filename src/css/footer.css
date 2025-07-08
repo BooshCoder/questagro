@@ -61,7 +61,7 @@
 .footer-nav-link {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: 500;
   transition: color 0.2s;
 }
@@ -76,7 +76,7 @@
   margin-bottom: 30px;
 }
 .footer-contacts-title {
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 1px;
   text-align: center;
@@ -91,7 +91,7 @@
 .footer-contact-link {
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 10px;
   transition: color 0.2s;
 }
 .footer-contact-link:hover,
@@ -127,7 +127,7 @@
   .footer-container {
     flex-direction: row;
     gap: 16px;
-    padding: 24px 24px;
+    padding: 32px 84px 46px 84px;
   }
   .footer-logo {
     align-items: flex-start;
@@ -179,7 +179,7 @@
   .footer-container {
     flex-direction: row;
     gap: 32px;
-    padding: 32px 24px 46px 24px;
+    padding: 32px 84px 46px 84px;
   }
   .footer-logo {
     align-items: flex-start;
