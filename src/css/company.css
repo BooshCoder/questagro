@@ -359,3 +359,7 @@
     box-sizing: border-box;
   }
 }
+
+.company-accordion ul li {
+  margin-bottom: 12px;
+}

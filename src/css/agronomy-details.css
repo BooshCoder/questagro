@@ -18,6 +18,9 @@
   color: var(--color-primary);
   margin-top: 0;
 }
+.details-block h2 {
+  margin-bottom: 18px;
+}
 .details-block ul,
 .details-block ol,
 .details-block .benefits-list,
@@ -351,4 +354,12 @@
 }
 .agro-acc-panel.open .details-list li:nth-child(10) {
   transition-delay: calc(var(--accordion-stagger-delay) * 11);
+}
+
+.details-list li {
+  margin-bottom: 10px;
+}
+
+.details-intro {
+  margin: 16px 0;
 }
